@@ -1,0 +1,422 @@
+snapcraft (2.43.1+18.04.1) bionic-security; urgency=medium
+
+  [ Sergio Schvezov ]
+  * SECURITY UPDATE: library injection vulnerability on strict mode
+    snaps built with snapcraft via misconfigured LD_LIBRARY_PATH
+    - project_loader: do not export empty environment
+    - meta: do not export empty environment. Warn on empty environment.
+    - CVE-2020-27348
+    - LP: #1901572
+
+ -- Emilia Torino <emilia.torino@canonical.com>  Tue, 01 Dec 2020 09:10:42 -0300
+
+snapcraft (2.43.1+18.04) bionic; urgency=medium
+
+  [ Sergio Schvezov ]
+  * lxd: support new style snap injection (#2222)
+  * snap: prepare override scripts to allow rebuilding (#2223)
+  * lxd: wait for cloud-init (#2227)
+  * storeapi: handle releasing to a curly braced branch (#2228)
+  * snap: use set-version and set-grade (#2230)
+  * lxd: proper filename set when using architectures (#2232)
+  * tests: cover manifest generation with review-tools (#2235)
+  * reporting: record the released version for errors (#2238)
+  * file_utils: find tool when using docker and deb (#2240)
+  * elf: better messaging on glibc ABI incompatibilities (#2241)
+  * New upstream release (LP: #1789766)
+
+  [ Kyle Fazzari ]
+  * spread: stop running catkin tests on 18.10 (#2221)
+  * snapcraftctl: run in isolation mode (#2224)
+  * templates: reimplement templates as python classes (#2226)
+  * templates: rename to extensions (#2233)
+  * cli: add list-extensions command (#2237)
+  * extensions: fix install path (#2236)
+
+  [ Evan Dandrea]
+  * reporting: improve messaging on errors (#2242)
+
+ -- Sergio Schvezov <sergio.schvezov@ubuntu.com>  Thu, 30 Aug 2018 00:08:05 +0000
+
+snapcraft (2.43) xenial; urgency=medium
+
+  [ Sergio Schvezov ]
+  * recording: expose the version of snapcraft (#2147)
+  * tests: add a fixture for OsRelease to simplify test setup
+  * recording: add the os-release ID and VERSION_ID to manifest.yaml
+  * nodejs plugin: update to the latest 6.x LTS point release (#2157)
+  * snap: use apt from the archive instead of compiling (#2156)
+  * build_providers: support for communicating with a qemu VM (#2155)
+  * many: refactor snapcraft.yaml loading out of load_config (#2160)
+  * tests: update codespell, the scope of checks and ordering of static
+           tests (#2162)
+  * rust plugin: fix cargo builds and run tests (#2170)
+  * build_providers: add ssh key managemet to the qemu build provider (#2168)
+  * ci: disable osx tests until a new pyyaml is released
+  * build_providers: inject snaps when running from a snap (#2174)
+  * code: use black as the standard style (#2180)
+  * cli: reserve the --debug option for snapcraft projects (#2185)
+  * state: allow parametrization of the global state file (#2186)
+  * errors: enable sentry by default (#2187)
+  * file_utils: get_tool_path to always return an absolute path (#2193)
+  * errors: support keyboard interrupts (#2198)
+  * build_providers: add a build image setup facility (#2192)
+  * build providers: better injection logic (#2196)
+  * Revert "ci: disable osx tests until a new pyyaml is released" (#2213)
+  * providers: multipass by default on darwin (#2215)
+  * New upstream release (LP: #1787419)
+
+  [ Kyle Fazzari ]
+  * lifecycle: automatically stage dependencies (#2144)
+  * lifecycle: automatically clean dirty steps (#2145)
+  * travis: use LXD from 3.0 track (#2149)
+  * project_loader: process parts in consistent order (#2146)
+  * project_loader: allow loading null parts (#2153)
+  * tests: disable sentry (#2154)
+  * lifecycle: don't clean priming area if the snap is being tried (#2143)
+  * many: extract lifecycle ordering into own module (#2159)
+  * many: automatically redo step for specified part (#2152)
+  * tests: add lifecycle ordering tests (#2163)
+  * many: automatically detect dependency changes (#2165)
+  * project_loader: replace dict keys as well as values (#2166)
+  * {catkin,python} plugin: support cleaning (#2171)
+  * many: add shellcheck to static tests (#2172)
+  * lifecycle: detect local source changes (#2167)
+  * lifecycle: pass commands to containerbuild, not steps (#2178)
+  * cli: SNAPCRAFT_BUILD_ENVIRONMENT isn't deprecated (#2179)
+  * pluginhandler: use uname from the host (#2177)
+  * store: properly handle disabled deltas (#2181)
+  * tests: create basic integration test spread infrastructure (#2173)
+  * tests: add spread suite for autotools plugin (#2182)
+  * tests: add spread suite for cmake plugin (#2183)
+  * spread: stop testing 17.10 (#2197)
+  * tests: add spread suite for copy plugin (#2199)
+  * tests: add spread suite for nil plugin (#2201)
+  * tests: add spread suite for kbuild plugin (#2203)
+  * kbuild plugin: stop modifying kconfigfile (#2204)
+  * tests: support running spread suite in autopkgtests (#2188)
+  * tests: add spread suite for meson plugin (#2205)
+  * tests: add spread suite for godeps plugin (#2200)
+  * tests: add spread suite for scons plugin (#2208)
+  * tests: add spread suite for catkin plugin (#2206)
+  * tests: add spread suite for waf plugin (#2210)
+  * cli: add inspect subcommand (#2184)
+  * tests: add spread suite for tar-content plugin (#2209)
+  * tests: add spread suite for ament plugin (#2211)
+  * tests: add spread suite for ruby plugin (#2212)
+  * project_loader: add basic template support (#2189)
+  * spread tests: vendor gotty
+  * spread tests: vendor kbuild-template
+  * spread tests: vendor hello
+  * sentry: support disabling error reporting (#2214)
+
+  [ Daniel Llewellyn ]
+  * jhbuild plugin: allow running as 'root' (#2141)
+
+  [ Emmanuel Leblond ]
+  * python plugin: add process-dependency-links to the pull_properties (#2190)
+  * ci: improve pr template and tools' ignored files list (#2191)
+
+  [ Celso Providelo ]
+  * tests: stricter match when running snapcraft revisions (#2195)
+
+  [ Michael Vogt ]
+  * go plugin: do not install go debs if go snap is used (#2194)
+
+  [ Jesse Sung ]
+  * kbuild plugin: read configs from source directory instead (#2202)
+
+  [ Paolo Pisati ]
+  * kernel plugin: install .config as config-$kernelversion (#2207)
+
+ -- Sergio Schvezov <sergio.schvezov@ubuntu.com>  Thu, 16 Aug 2018 14:12:55 +0000
+
+snapcraft (2.42.1) xenial; urgency=medium
+
+  [ Sergio Schvezov ]
+  * repo: rollback to using dpkg-deb for deb extraction (#2111)
+  * pluginhandler: correctly dedent the run script (#2117)
+  * many: dedup environment entries (#2120)
+  * packaging: load the correct libraries on armhf (#2126)
+  * delta: properly search for in-snap xdelta3 (#2127)
+  * package: disable user site-packages for snapcraft (#2131)
+  * tests: remove obsolete env var (#2130)
+  * errors: generic exception for common.run[_output] (#2132)
+  * tests: add subprocess to lifecycle tests
+  * ci: resurrect codecov (#2138)
+  * ci: remove unused cron tests (#2139)
+  * tests: generalize the plainbox-provider tests
+  * New upstream release (LP: #1771915)
+
+  [ Kyle Fazzari ]
+  * HACKING: suggest snapcraft-pr for evaluating PRs (#2108)
+  * repo: fix all python shebangs in stage-packages (#2112)
+  * sources: don't clean target for FileBase sources (#2113)
+  * meta: stop creating empty snap directory in prime (#2114)
+  * snapcraft.yaml: update apt repo location (#2124)
+  * file_utils: don't let FileNotFoundError escape (#2123)
+  * storeapi: ensure snap ID is sane before using it (#2115)
+  * pluginhandler: collide with directories and symlinks (#1064)
+  * storeapi: handle 5xx error codes for all store endpoints (#2116)
+  * many: introduce variables for part src and build (#2122)
+  * repo: automatically prune unneeded stage-packages (#2119)
+
+  [ Christian Dywan ]
+  * sources: clean up IncompatibleOptionsError (#2109)
+  * lxd: proper error classes for container errors (#2095)
+
+  [ Jonathan Cave ]
+  * plainbox-provider plugin: include pip, setuptools and wheel as stage-packages (#2140)
+
+ -- Segio Schvezov <sergio.schvezov@ubuntu.com>  Fri, 18 May 2018 02:28:55 +0000
+
+snapcraft (2.42) xenial; urgency=medium
+
+  [ Sergio Schvezov ]
+  * elf: patch everything instead of a subset of elf files (#2081)
+  * elf: clear the current runpath before setting the rpath (#2085)
+  * python plugin: properly handle distutils on bionic
+  * ci: add the python integration tests on bionic for travis
+  * many: remove support for remote lxd per project containers (#2089)
+  * schema: allow refresh-mode and stop-mode (#2092)
+  * packaging: include changelog for setup.py's version detection (#2097)
+  * ci: enable OSX testing on travis (#2084)
+  * tests: use a common cache for the integration tests
+  * tests: remove the SharedCache fixture and uses of it
+  * many: allow building in containers with no version in project (#2104)
+  * errors: remove logic for SNAPCRAFT_SEND_ERROR_DATA
+  * errors: implement the always option to sent to sentry
+  * package: make use of snapcraftctl snapcraft features (#2103)
+  * nodejs plugin: lazy load the required tarballs (#2106)
+  * build_providers: new build provider using multipass (#2100)
+  * tests: use FakeSnapd for grammar tests
+  * tests: adapt the integration suite to work for all releases
+  * New upstream release (LP: #1767016)
+
+  [ Kyle Fazzari ]
+  * project_loader: support architectures for CI (#2080)
+  * meta: soften warning about using passthrough (#2091)
+  * storeapi: better handle network errors and retries (#2094)
+  * grammar: support compound on..to statement (#2088)
+  * tests: fix arch-specific integration tests
+
+  [ Christian Dywan ]
+  * python: bring back support for older versions of pip (#2055)
+  * tests: don't use os_release and repo from snapcraft (#2096)
+  * lxd: wait for on-going refreshes to finish (#2098)
+  * ci: setup AppVeyor (#2087)
+  * repo: catch error updating the package cache (#2079)
+  * tests: do not shadow deb_arch in architecture scenarios
+  * tests: parser tests need the cache
+  * tests: don't hard-code expected arch in VersionScriptTestCase
+
+  [ Rakesh Singh ]
+  * dotnet plugin: add dotnet command to path for step overriding (#1909)
+
+  [ Michael Vogt ]
+  * lifecycle: skip -all-root for base snaps (#2090)
+
+  [ Matias Bordese ]
+  * tests: update metadata store integration test, no previous push
+    required (#2086)
+
+ -- Sergio Schvezov <sergio.schvezov@ubuntu.com>  Thu, 26 Apr 2018 01:58:29 +0000
+
+snapcraft (2.41) xenial; urgency=medium
+
+  [ Sergio Schvezov ]
+  * package: ensure all relevant files are in for sdist (#2060)
+  * errors: enable sending tracebacks to sentry (#1961)
+  * errors: improve the UX for sending error data (#2024)
+  * errors: remove stack data when sending to sentry (#2036)
+  * errors: feature flag error reports (#2066)
+  * packaging: simplify snapcraft.yaml (#2062)
+  * many: update the yaml loading logic (#2065)
+  * extractors: support for setup.py (#2070)
+  * lifecycle: handle missing version correctly (#2072)
+  * python plugin: do not invoke wheel install if empty (#2077)
+  * patches: improve ctypes patch for python 3.5
+  * ci: enable subset of integration tests on bionic
+  * errors: skip the sentry test if raven is no installed (#2075)
+  * New upstream release (LP: #1763934)
+
+  [ Kyle Fazzari ]
+  * many: add snapcraftctl command for scriptlets (#2002)
+  * kernel plugin: add kmod as build-package (#2041)
+  * cli: support exporting login to stdout (#2043)
+  * many: add override-pull scriptlet (#2045)
+  * pluginhandler: organize in build instead of stage (#2047)
+  * tests: extract sources suite from general suite (#2054)
+  * many: add override-stage scriptlet (#2049)
+  * tests: extract lifecycle suite from general suite (#2057)
+  * many: add override-prime scriptlet (#2052)
+  * elf: use snapped strip (#2051)
+  * storeapi: properly handle lacking permission for channel (#2050)
+  * many: add snapcraftctl set-version (#2063)
+  * storeapi: handle 500 error response when releasing snap (#2059)
+  * states: track override scriptlets (#2068)
+  * many: add snapcraftctl set-grade (#2067)
+  * meta: validate extracted and scriptlet metadata (#2073)
+
+  [ Christian Dywan ]
+  * options: introduce Project and ProjectInfo (#1995)
+  * lxd: friendly error with suggestions if network is broken (#1930)
+  * lxd: merge existing image info contents when using containerbuilds (#1997)
+  * lxd: specify arch in lxc image list command (#2046)
+  * meta: implement passthrough of properties to snap.yaml (#2053)
+
+  [ Guilhem Lettron ]
+  * nodejs plugin: add option for setting npm flags (#2038)
+
+  [ Bjorn Tillenius ]
+  * python plugin: install python-distutils when run on bionic (#2058)
+
+  [ Rakesh Singh ]
+  * dotnet plugin: add support enable configurable runtime version for
+    .NET Core applications (#1911)
+
+  [ Colin Watson ]
+  * storeapi: fix formatting of some store errors (#2056)
+
+ -- Sergio Schvezov <sergio.schvezov@ubuntu.com>  Sat, 14 Apr 2018 12:13:35 +0000
+
+snapcraft (2.40.1) xenial; urgency=medium
+
+  [ Evan Dandrea ]
+  * readme: polish the landing page (#2022)
+
+  [ Christian Dywan ]
+  * repo: catch error due to broken build packages (#2023)
+
+  [ Sergio Schvezov ]
+  * pluginhandler: organize correcly for targets with leading / (#2034)
+
+ -- Sergio Schvezov <sergio.schvezov@ubuntu.com>  Tue, 27 Mar 2018 21:09:24 +0000
+
+snapcraft (2.40) xenial; urgency=medium
+
+  [ Sergio Schvezov ]
+  * elf: better debug messages (#1950)
+  * elf: clear execstack by default (#1945)
+  * repo: silence deb caching when fetching packages (#1949)
+  * meta: make sure adapter does not propagate (#1955)
+  * store: stringify message for StoreDeltaApplicationError (#1962)
+  * python plugin: find setup.py when source-subdir is used (#1975)
+  * ci: switch to stable lxd and unconfined containers (#1978)
+  * project_loader: improve the logic to install patchelf as a build tool (#1967)
+  * demos: avoid use of the wrapper for java-hello-world (#1968)
+  * lifecycle: when priming dependencies need to be primed (#1977)
+  * pluginhandler: simplify logic when elf patching is required (#1979)
+  * pluginhandler: add option to disable patchelf for a part (#1987)
+  * schema: add keep-execstack (#1986)
+  * elf: remove dead code (#2000)
+  * core: initial support for bases (#1993)
+  * docker: export SNAP_ARCH into the environment (#1994)
+  * tests: add SNAPCRAFT_KEEP_DATA_PATH for integration (#1996)
+  * errros: add a specific error when running commands from plugins (#2004)
+  * pluginhandler: special case go patchelf failures for classic confinement (#2005)
+  * many: use packaging logic to get patchelf (#2006)
+  * project_loader: fix the host to base compatibility check (#2009)
+  * pluginhandler: only do elf checking and patching for type app (#2012)
+  * demos: use realpath in command entry for java-hello-world (#2016)
+  * many: optimize retrieval of the linker version (#2017)
+  * tests: minor fixes to autopkgtests (#2018)
+  * elf: avoid duplicating rpath entries (#2019)
+  * pluginhandler: only resort to elf mangling if the snap type is app (#2021)
+  * New upstream release (LP: #1756939)
+
+  [ Leo Arias ]
+  * tests: split the plugins tests in the same directory (#1944)
+  * tests: move test files out of the snapcraft dir (#1948)
+  * extractors: replace desktop file ids with paths (#1879)
+  * extractors: add support for common-id  (#1960)
+  * tests: remove ProjectOptions dependency from the integration suite (#1965)
+  * tests: remove dependency of internal repo from integration suite (#1971)
+  * tests: remove the internal os_release dependency (#1981)
+  * tests: remove _options dependency from integration suite (#1972)
+  * tests: update store tests user (#1984)
+  * tests: document arm testing setup (#1985)
+
+  [ Kyle Fazzari ]
+  * catkin plugin: extract Wstool into its own module (#1927)
+  * elf: remove all un-primed libs from soname cache (#1980)
+  * catkin plugin: support recursive rosinstall files (#1934)
+  * elf: only set rpaths to libs of the same arch (#1988)
+  * elf: don't parse elf more than necessary (#1989)
+  * catkin plugin: replace python calls in all profile.d scripts (#2007)
+  * docs: add execstack to HACKING.md's list of deb deps (#2015)
+  * integration tests: snap tests shouldn't be arch-specific (#2014)
+
+  [ Gustavo Silva ]
+  * cli: add version command (#1746)
+
+  [ John Lenton ]
+  * schema: improve the snap name's validator (#1957)
+  * snap: actually plug the completer in. (#1956)
+  * tests: adapt store tests with new snap name registration error messages
+    (#1964)
+
+  [ Christian Dywan ]
+  * project_loader: handle invalid unicode chars (#1941)
+  * lxd: initialize remote lazily (#1916)
+
+  [ Celso Providelo ]
+  * store: support for more granular store permissions (#1958)
+
+  [ James Henstridge ]
+  * elf: only consider regular files as possible ELF binaries (#1976)
+  * elf: only patch elf files that aren't referenced by DT_NEEDED (#1959)
+
+ -- Sergio Schvezov <sergio.schvezov@ubuntu.com>  Mon, 19 Mar 2018 12:40:43 +0000
+
+snapcraft (2.39.2) xenial; urgency=medium
+
+  [ Sergio Schvezov ]
+  * tests: improvements to demos (#1938)
+  * tests: remove the webcam-webui demo (#1940)
+  * elf: contemplate more patching scenarios (#1935)
+  * New upstream release (LP: #1745488)
+
+  [ Kyle Fazzari ]
+  * tests: remove duplicate tests (#1928)
+  * schema: remove underscore from version pattern (#1933)
+  * store: support pushing snap with no architectures (#1937)
+  * storeapi: handle errors even for >400 responses (#1936)
+
+  [ Christian Dywan ]
+  * sources: proper errors for invalid handlers (#1929)
+
+  [ Sylvain Pineau ]
+  * tests: update the plainbox-provider tests (#1931)
+
+ -- Sergio Schvezov <sergio.schvezov@ubuntu.com>  Tue, 20 Feb 2018 00:40:00 +0000
+
+snapcraft (2.39.1) xenial; urgency=medium
+
+  [ Sergio Schvezov ]
+  * tests: setup the correct environment for adt (#1907)
+  * snap: patch ctypes for the snap and remove libarchive (#1915)
+  * tests: update tests to work in adt (#1908)
+  * elf: cache crawled files (#1925)
+
+  [ Leo Arias ]
+  * elf: use surrogate escape when decoding readelf output (#1903)
+
+  [ Christian Dywan ]
+  * os-release: stub for when /etc/os-release doesn't exist (#1880)
+
+  [ James Henstridge ]
+  * elf: pyelftools to parse ELF files rather than readelf (#1913)
+
+  [ Christian Dywan ]
+  * lxd: raw.idmap expects host and container id respectively (#1904)
+
+  [ Kyle Fazzari ]
+  * docker: add Dockerfiles for all risk levels (#1914)
+  * schema: update version regex (#1924)
+  * mypy: update to 0.560 (#1923)
+  * remote_parts: handle connection errors (#1906)
+
+ -- Sergio Schvezov <sergio.schvezov@ubuntu.com>  Thu, 15 Feb 2018 12:14:00 +0000
+
+# For older changelog entries, run 'apt-get changelog snapcraft'
